@@ -1,0 +1,394 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+body {
+    font-family: "Inter", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    max-width: 1600px;
+    margin: 0 auto;
+    width: 95%;
+}
+
+header, section, footer {
+    width: 100%;
+}
+
+header {
+    position: absolute;
+    top: 0;
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+    font-size: 12.5px;
+    font-weight: 400;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+}
+
+.footer-container {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    font-size: 12.5px;
+    font-weight: 400;
+}
+
+.footer-container>div {
+    width: 373px;
+}
+
+#main {}
+
+.main-container {
+    display: flex;
+    justify-content: space-between;
+    min-height: 100vh;
+}
+
+.main-container>* {
+    margin-top: 130px;
+}
+
+.left-main {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 373px;
+    font-size: 12.5px;
+    font-weight: 400;
+    align-items: flex-start;
+}
+
+.left-main .sounds {
+    text-decoration: underline;
+}
+
+.left-main img {
+    width: 256px;
+}
+
+.right-main {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+    width: 428px;
+}
+
+.thoughts {
+    display: flex;
+}
+
+.thoughts>div:nth-child(1) {
+    width: 111px;
+    font-size: 11px;
+}
+
+.thoughts>div:nth-child(2) {
+    flex: 1;
+    overflow: scroll;
+}
+
+.thoughts>div:nth-child(2)::-webkit-scrollbar {
+    display: none;
+}
+
+.thoughts>div:nth-child(2)>div {
+    display: flex;
+    gap: 9px;
+}
+
+.thoughts>div:nth-child(2)>div img {
+    width: 89px;
+}
+
+.research {
+    display: flex;
+}
+
+.research>div:nth-child(1) {
+    width: 111px;
+    font-size: 11px;
+}
+
+.research>div:nth-child(2) {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+}
+
+.research-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 12.5px;
+}
+
+.research-options>span {
+    opacity: 0.5;
+    transition: 0.5s all ease;
+}
+
+.research-options>span:hover {
+    opacity: 1;
+}
+
+.research-photo {
+    position: relative;
+    height: 172px;
+    width: 120px;
+}
+
+.research-photo img {
+    position: absolute;
+    height: 172px;
+    width: 120px;
+    opacity: 0;
+    transition: 0.5s all ease;
+}
+
+.note-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(180, 180, 180, 0.6);
+    backdrop-filter: blur(6px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.note-editor {
+    background: white;
+    width: 640px;
+    max-width: 90%;
+    border-radius: 8px;
+    font-family: monospace;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.note-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    margin-bottom: 0px;
+    position: relative;
+    background-color: #EFEFEE;
+    border-radius: 8px 8px 0 0;
+    height: 25px;
+    cursor: grab;
+}
+
+.note-date {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.note-buttons {
+    display: flex;
+    gap: 5px;
+    margin-left: 10px;
+}
+
+.note-buttons>div:nth-child(1) {
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    background-color: #EE695E;
+}
+
+.note-buttons>div:nth-child(2) {
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    background-color: #F5C150;
+}
+
+.note-buttons>div:nth-child(3) {
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    background-color: #62C555;
+}
+
+.note-editor textarea {
+    height: 400px;
+    width: calc(100% - 40px);
+    border: none;
+    resize: none;
+    outline: none;
+    font-family: monospace;
+    font-size: 14px;
+    line-height: 1.6;
+    background: none;
+    margin: 10px;
+}
+
+.note-editor textarea::-webkit-scrollbar {
+    display: none;
+}
+
+.iframe-cont {
+    width: 440px;
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    height: 344px;
+}
+
+.iframe-cont iframe {
+    position: absolute;
+    left: 52%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.open-note, .sounds, .research-options>span {
+    cursor: pointer;
+}
+
+@media only screen and (min-width: 1024px) {
+    .mob {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+
+    .mobnot{
+        display: none!important;
+    }
+
+    .right-header {
+        display: none;
+    }
+
+    .header-container {
+        justify-content: center;
+    }
+
+    .left-header{
+        display: flex;
+        gap: 20px;
+        align-items: center;
+    }
+
+    .sounds{
+        text-decoration: underline;
+    }
+
+    .open-note{
+        text-decoration: underline;
+    }
+
+    .main-container{
+        flex-direction: column;
+        gap: 50px;
+        align-items: center;
+    }
+
+    .left-main{
+        width: 256px;
+        align-items: center;
+    }
+
+    .left-main p{
+        order: 6;
+        width: 240px;
+    }
+
+    .left-main .sounds{
+        display: none;
+    }
+
+    .right-main{
+        width: 100%;
+    }
+
+    .research{
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .research>div{
+        width: 100%;
+    }
+
+    .thoughts{
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .thoughts>div{
+        width: 100%;
+    }
+
+    .footer-container>div{
+        width: auto;
+    }
+
+    footer{
+        position: relative;
+    }
+
+    .right-main{
+        margin-top: 0;
+    }
+
+    .thoughts>div:nth-child(2){
+        width: 317px;
+        margin-left: auto;
+    }
+
+    .research>div:nth-child(2){
+        width: 317px;
+        margin-left: auto;
+    }
+
+    #main{
+        overflow: hidden;
+    }
+
+    .note-editor{
+        width: 95%;
+        position: relative;
+    }
+
+    .iframe-cont {
+        width: 95%!important;
+        border-radius: 16px;
+        overflow: hidden;
+        position: relative;
+        height: 344px;
+    }
+    
+    .iframe-cont iframe {
+        position: absolute;
+        left: 52%;
+        top: 50%;
+        width:calc(105%)!important;
+        transform: translate(-50%, -50%);
+    }
+
+}
