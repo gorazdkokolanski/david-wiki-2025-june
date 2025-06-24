@@ -1,9 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
+@font-face {
+    font-family: 'Menlo';
+    src: url('./fonts/Menlo-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 body {
     font-family: "Inter", sans-serif;
     margin: 0;
     padding: 0;
+    background-color: #F9F8F3;
 }
 
 h1, h2, h3, h4, h5, h6, p {
@@ -12,9 +20,9 @@ h1, h2, h3, h4, h5, h6, p {
 }
 
 .container {
-    max-width: 1600px;
-    margin: 0 auto;
-    width: 95%;
+    width: 80%;
+    margin-left: 5%;
+    margin-right: auto;
 }
 
 header, section, footer {
@@ -58,6 +66,7 @@ footer {
     display: flex;
     justify-content: space-between;
     min-height: 100vh;
+    width: 85%;
 }
 
 .main-container>* {
@@ -114,6 +123,28 @@ footer {
 
 .thoughts>div:nth-child(2)>div img {
     width: 89px;
+    position: absolute;
+    height: 129.5px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: 0.5s all ease;
+}
+
+.thoughts-img-cont {
+    min-width: 89px;
+    height: 129.5px;
+    position: relative;
+    transition: 0.5s all ease;
+    overflow: hidden;
+}
+
+.thoughts-img-cont:hover {
+    transform: scale(0.95);
+}
+
+.thoughts-img-cont:hover>img {
+    transform: translate(-50%, -50%) scale(1.045) !important;
 }
 
 .research {
@@ -167,8 +198,8 @@ footer {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(180, 180, 180, 0.6);
-    backdrop-filter: blur(6px);
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(0.5px);
     display: none;
     align-items: center;
     justify-content: center;
@@ -177,7 +208,7 @@ footer {
 
 .note-editor {
     background: white;
-    width: 640px;
+    width: 840px;
     max-width: 90%;
     border-radius: 8px;
     font-family: monospace;
@@ -233,16 +264,16 @@ footer {
 }
 
 .note-editor textarea {
-    height: 400px;
+    height: 530px;
     width: calc(100% - 40px);
     border: none;
     resize: none;
     outline: none;
-    font-family: monospace;
     font-size: 14px;
     line-height: 1.6;
     background: none;
     margin: 10px;
+    font-family: 'Menlo', 'Arial';
 }
 
 .note-editor textarea::-webkit-scrollbar {
@@ -251,7 +282,7 @@ footer {
 
 .iframe-cont {
     width: 440px;
-    border-radius: 16px;
+    border-radius: 26px;
     overflow: hidden;
     position: relative;
     height: 344px;
@@ -268,6 +299,31 @@ footer {
     cursor: pointer;
 }
 
+/* 1) hide the scrollbar & make it a clipping container */
+.thoughts > div:nth-child(2) {
+    overflow: hidden;        /* instead of scroll */
+    max-width: 286px;
+  }
+  
+  /* 2) ensure the inner wrapper is a flex‐row */
+  .thoughts > div:nth-child(2) > div {
+    display: flex;
+  }
+  
+  /* (you already have width/height on .thoughts-img-cont) */
+  
+  /* 3) keyframes: shift the track left by exactly half its width */
+  @keyframes thoughts-scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-295px); }
+  }
+  
+  /* 4) apply a linear infinite animation */
+  .thoughts > div:nth-child(2) > div {
+    animation: thoughts-scroll 20s linear infinite;
+  }
+  
+
 @media only screen and (min-width: 1024px) {
     .mob {
         display: none;
@@ -276,8 +332,8 @@ footer {
 
 @media only screen and (max-width: 1024px) {
 
-    .mobnot{
-        display: none!important;
+    .mobnot {
+        display: none !important;
     }
 
     .right-header {
@@ -288,107 +344,115 @@ footer {
         justify-content: center;
     }
 
-    .left-header{
+    .left-header {
         display: flex;
         gap: 20px;
         align-items: center;
     }
 
-    .sounds{
+    .sounds {
         text-decoration: underline;
     }
 
-    .open-note{
+    .open-note {
         text-decoration: underline;
     }
 
-    .main-container{
+    .main-container {
         flex-direction: column;
         gap: 50px;
         align-items: center;
     }
 
-    .left-main{
+    .left-main {
         width: 256px;
         align-items: center;
     }
 
-    .left-main p{
+    .left-main p {
         order: 6;
         width: 240px;
     }
 
-    .left-main .sounds{
+    .left-main .sounds {
         display: none;
     }
 
-    .right-main{
+    .right-main {
         width: 100%;
     }
 
-    .research{
+    .research {
         flex-direction: column;
         gap: 15px;
     }
 
-    .research>div{
+    .research>div {
         width: 100%;
     }
 
-    .thoughts{
+    .thoughts {
         flex-direction: column;
         gap: 15px;
     }
 
-    .thoughts>div{
+    .thoughts>div {
         width: 100%;
     }
 
-    .footer-container>div{
+    .footer-container>div {
         width: auto;
     }
 
-    footer{
+    footer {
         position: relative;
     }
 
-    .right-main{
+    .right-main {
         margin-top: 0;
     }
 
-    .thoughts>div:nth-child(2){
+    .thoughts>div:nth-child(2) {
         width: 317px;
         margin-left: auto;
     }
 
-    .research>div:nth-child(2){
+    .research>div:nth-child(2) {
         width: 317px;
         margin-left: auto;
     }
 
-    #main{
+    #main {
         overflow: hidden;
     }
 
-    .note-editor{
+    .note-editor {
         width: 95%;
         position: relative;
+        overflow: hidden;
+        max-height: 90vh;
     }
 
     .iframe-cont {
-        width: 95%!important;
-        border-radius: 16px;
+        width: 95% !important;
+        border-radius: 26px;
         overflow: hidden;
         position: relative;
         height: 344px;
+        max-width: 600px;
     }
-    
+
     .iframe-cont iframe {
         position: absolute;
         left: 52%;
         top: 50%;
-        width:calc(105%)!important;
+        width: calc(105%) !important;
         transform: translate(-50%, -50%);
+    }
+
+    .container{
+        width: 95%;
+        margin: 0 auto;
     }
 
 }
