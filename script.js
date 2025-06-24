@@ -87,3 +87,69 @@ soundsButtons.forEach(btn => {
     });
   });
   
+
+
+
+
+// script.js
+document.addEventListener('DOMContentLoaded', () => {
+  const scrollEl = document.getElementById('thoughtsScroll');
+  const track    = document.getElementById('thoughtsTrack');
+  const speed    = 0.5;      // px per frame for auto-scroll
+  let isUserInteracting = false;
+  let wheelTimeout;
+
+  // — Interaction flags ——
+  ['mousedown','touchstart'].forEach(evt =>
+    scrollEl.addEventListener(evt, () => isUserInteracting = true)
+  );
+  ['mouseup','mouseleave','touchend'].forEach(evt =>
+    scrollEl.addEventListener(evt, () => isUserInteracting = false)
+  );
+
+  scrollEl.addEventListener('wheel', e => {
+    if (Math.abs(e.deltaX) > 0) {
+      isUserInteracting = true;
+      clearTimeout(wheelTimeout);
+      wheelTimeout = setTimeout(() => { isUserInteracting = false; }, 150);
+    }
+  });
+
+  // — Recycling logic ——
+  function recycle() {
+    const gap = parseFloat(getComputedStyle(track).gap) || 0;
+    let first, last, w;
+  
+    // — Forward wrap —
+    while ((first = track.firstElementChild) &&
+           scrollEl.scrollLeft >= first.offsetWidth + gap) {
+      w = first.offsetWidth + gap;
+      scrollEl.scrollLeft -= w;
+      track.appendChild(first);
+    }
+  
+    // — Backward wrap —
+    while ((last = track.lastElementChild) &&
+           scrollEl.scrollLeft <= 70) {
+      w = last.offsetWidth + gap;
+      scrollEl.scrollLeft += w;
+      track.insertBefore(last, track.firstElementChild);
+    }
+  }
+  
+  
+
+  // run recycle on any scroll (manual or code-driven)
+  scrollEl.addEventListener('scroll', recycle);
+
+  // — Auto-scroll loop ——
+  function loop() {
+    if (!isUserInteracting) {
+      scrollEl.scrollLeft += speed;
+    }
+    recycle();
+    requestAnimationFrame(loop);
+  }
+
+  loop();
+});

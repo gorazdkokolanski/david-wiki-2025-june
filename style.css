@@ -281,7 +281,7 @@ footer {
 }
 
 .iframe-cont {
-    width: 440px;
+    width: 640px;
     border-radius: 26px;
     overflow: hidden;
     position: relative;
@@ -292,6 +292,7 @@ footer {
     position: absolute;
     left: 52%;
     top: 50%;
+    width: calc(105%) !important;
     transform: translate(-50%, -50%);
 }
 
@@ -299,29 +300,26 @@ footer {
     cursor: pointer;
 }
 
-/* 1) hide the scrollbar & make it a clipping container */
-.thoughts > div:nth-child(2) {
-    overflow: hidden;        /* instead of scroll */
-    max-width: 286px;
+.thoughts-scroll {
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .thoughts-scroll::-webkit-scrollbar { display: none; }
+  
+  .thoughts-track {
+    display: inline-flex;
+  }
+  .thoughts-img-cont {
+    flex: none;
+    width: 89px;
+    height: 129.5px;
+    overflow: hidden;
+    position: relative;
   }
   
-  /* 2) ensure the inner wrapper is a flex‐row */
-  .thoughts > div:nth-child(2) > div {
-    display: flex;
-  }
-  
-  /* (you already have width/height on .thoughts-img-cont) */
-  
-  /* 3) keyframes: shift the track left by exactly half its width */
-  @keyframes thoughts-scroll {
-    from { transform: translateX(0); }
-    to   { transform: translateX(-295px); }
-  }
-  
-  /* 4) apply a linear infinite animation */
-  .thoughts > div:nth-child(2) > div {
-    animation: thoughts-scroll 20s linear infinite;
-  }
   
 
 @media only screen and (min-width: 1024px) {
