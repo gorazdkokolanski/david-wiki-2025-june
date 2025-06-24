@@ -306,11 +306,13 @@ footer {
     white-space: nowrap;
     -ms-overflow-style: none;
     scrollbar-width: none;
+    width: 285px;
   }
   .thoughts-scroll::-webkit-scrollbar { display: none; }
   
   .thoughts-track {
     display: inline-flex;
+    width: 285px;
   }
   .thoughts-img-cont {
     flex: none;
@@ -411,9 +413,9 @@ footer {
     }
 
     .thoughts>div:nth-child(2) {
-        width: 317px;
         margin-left: auto;
-    }
+    width: 285px;
+}
 
     .research>div:nth-child(2) {
         width: 317px;
