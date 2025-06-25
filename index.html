@@ -2,26 +2,11 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>David Wiki</title>
-    <meta property="og:title" content="David Wiki">
-    <meta property="og:image" content="https://david-wiki-2025.vercel.app/img/newcover.JPG">
-    <meta property="og:url" content="https://david.wiki">
-    <meta property="og:type" content="website">
-    <meta name="description" content="david.wiki">
-    <meta name="author" content="David Morales">
-    <meta property="og:description" content="david.wiki">
-
-    <link rel="icon" href="./assets/favicon.ico">
-    <link rel="apple-touch-icon" href="./assets/ann.svg">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 </head>
 
 <body>
@@ -61,20 +46,20 @@
 
                 <div class="thoughts">
                     <div>(thoughts)</div>
-                    <div class="thoughts-scroll swiper" id="thoughtsScroll">
-                        <div class="thoughts-track swiper-wrapper" id="thoughtsTrack">
-                            <!-- first set -->
-                            <div class="thoughts-img-cont swiper-slide"><img src="img/thoughts-1.jpg"></div>
-                            <div class="thoughts-img-cont swiper-slide"><img src="img/thoughts-2.jpg"></div>
-                            <div class="thoughts-img-cont swiper-slide"><img src="img/thoughts-3.jpg"></div>
-                            <!-- duplicate set -->
-                            <div class="thoughts-img-cont swiper-slide"><img src="img/thoughts-1.jpg"></div>
-                            <div class="thoughts-img-cont swiper-slide"><img src="img/thoughts-2.jpg"></div>
-                            <div class="thoughts-img-cont swiper-slide"><img src="img/thoughts-3.jpg"></div>
-                        </div>
+                    <div class="thoughts-scroll" id="thoughtsScroll">
+                      <div class="thoughts-track" id="thoughtsTrack">
+                        <!-- first set -->
+                        <div class="thoughts-img-cont"><img src="img/thoughts-1.jpg"></div>
+                        <div class="thoughts-img-cont"><img src="img/thoughts-2.jpg"></div>
+                        <div class="thoughts-img-cont"><img src="img/thoughts-3.jpg"></div>
+                        <!-- duplicate set -->
+                        <div class="thoughts-img-cont"><img src="img/thoughts-1.jpg"></div>
+                        <div class="thoughts-img-cont"><img src="img/thoughts-2.jpg"></div>
+                        <div class="thoughts-img-cont"><img src="img/thoughts-3.jpg"></div>
+                      </div>
                     </div>
-                </div>
-
+                  </div>
+                  
 
                 <div class="research">
 
@@ -105,8 +90,7 @@
     <footer>
 
         <div class="container footer-container">
-            <div>Forgive me for the times that I haven't treated what's been bestowed on me like the blessing that it
-                is.
+            <div>Forgive me for the times that I haven't treated what's been bestowed on me like the blessing that it is.
             </div>
         </div>
 
@@ -155,28 +139,6 @@ Hold me close. In whatever now feels best </textarea>
     </div>
 
     <script src="script.js"></script>
-
-    <script>
-        // after you load swiper-bundle.min.js
-const swiper = new Swiper('.swiper', {
-  slidesPerView: 'auto',   // let slides size themselves
-  spaceBetween: 9,         // same gap you had
-  loop: true,              // infinite loop
-  speed: 1000,            // time (ms) to do one full loop; increase for slower
-  freeMode: {
-    enabled: true,         // turn off snapping
-    sticky: false,         // never “stick” to slide
-    momentum: false        // no glide inertia
-  },
-  autoplay: {
-    delay: 0,              // no pause between loops
-    disableOnInteraction: false,
-    pauseOnMouseEnter: false
-  },
-  allowTouchMove: true     // keep manual drag if you want
-});
-
-    </script>
 
 </body>
 

@@ -110,8 +110,6 @@ footer {
 .thoughts>div:nth-child(2) {
     flex: 1;
     overflow: scroll;
-    display: flex;
-    max-width: 289px !important;
 }
 
 .thoughts>div:nth-child(2)::-webkit-scrollbar {
@@ -120,7 +118,7 @@ footer {
 
 .thoughts>div:nth-child(2)>div {
     display: flex;
-
+    gap: 9px;
 }
 
 .thoughts>div:nth-child(2)>div img {
@@ -135,7 +133,7 @@ footer {
 
 .thoughts-img-cont {
     min-width: 89px;
-    min-height: 129.5px;
+    height: 129.5px;
     position: relative;
     transition: 0.5s all ease;
     overflow: hidden;
@@ -148,27 +146,6 @@ footer {
 .thoughts-img-cont:hover>img {
     transform: translate(-50%, -50%) scale(1.045) !important;
 }
-
-.swiper {
-    width: 285px!important;       /* same as your old .thoughts-scroll */
-    overflow: scroll!important;   /* hide native scrollbar */
-  }
-  
-  .swiper-slide {
-    width: 89px!important;        /* same as your .thoughts-img-cont width */
-    flex-shrink: 0!important;
-  }
-  
-  .swiper-wrapper {
-    will-change: transform;
-  }
-
-  .swiper-wrapper {
-    /* Swiper uses “transition-timing-function: ease” by default when autoplay’ing
-       its internal transform.  We override it to be strictly linear: */
-    transition-timing-function: linear !important;
-  }
-  
 
 .research {
     display: flex;
@@ -330,16 +307,12 @@ footer {
     -ms-overflow-style: none;
     scrollbar-width: none;
     width: 285px;
-    overflow-x: auto; /* Must be 'auto' or 'scroll' */
-  white-space: nowrap; /* For horizontal scrolling of inline or inline-block elements */
-  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
-  transform: translateZ(0);
   }
   .thoughts-scroll::-webkit-scrollbar { display: none; }
   
   .thoughts-track {
     display: inline-flex;
-  will-change: transform;
+    width: 285px;
   }
   .thoughts-img-cont {
     flex: none;
@@ -441,7 +414,6 @@ footer {
 
     .thoughts>div:nth-child(2) {
         margin-left: auto;
-        margin-right: 0;
     width: 285px;
 }
 
