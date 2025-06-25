@@ -120,7 +120,6 @@ footer {
 
 .thoughts>div:nth-child(2)>div {
     display: flex;
-    gap: 9px;
 
 }
 
@@ -136,7 +135,7 @@ footer {
 
 .thoughts-img-cont {
     min-width: 89px;
-    height: 129.5px;
+    min-height: 129.5px;
     position: relative;
     transition: 0.5s all ease;
     overflow: hidden;
@@ -149,6 +148,27 @@ footer {
 .thoughts-img-cont:hover>img {
     transform: translate(-50%, -50%) scale(1.045) !important;
 }
+
+.swiper {
+    width: 285px!important;       /* same as your old .thoughts-scroll */
+    overflow: scroll!important;   /* hide native scrollbar */
+  }
+  
+  .swiper-slide {
+    width: 89px!important;        /* same as your .thoughts-img-cont width */
+    flex-shrink: 0!important;
+  }
+  
+  .swiper-wrapper {
+    will-change: transform;
+  }
+
+  .swiper-wrapper {
+    /* Swiper uses “transition-timing-function: ease” by default when autoplay’ing
+       its internal transform.  We override it to be strictly linear: */
+    transition-timing-function: linear !important;
+  }
+  
 
 .research {
     display: flex;
@@ -421,6 +441,7 @@ footer {
 
     .thoughts>div:nth-child(2) {
         margin-left: auto;
+        margin-right: 0;
     width: 285px;
 }
 
