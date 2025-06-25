@@ -110,6 +110,8 @@ footer {
 .thoughts>div:nth-child(2) {
     flex: 1;
     overflow: scroll;
+    display: flex;
+    max-width: 289px !important;
 }
 
 .thoughts>div:nth-child(2)::-webkit-scrollbar {
@@ -119,6 +121,7 @@ footer {
 .thoughts>div:nth-child(2)>div {
     display: flex;
     gap: 9px;
+
 }
 
 .thoughts>div:nth-child(2)>div img {
@@ -307,12 +310,16 @@ footer {
     -ms-overflow-style: none;
     scrollbar-width: none;
     width: 285px;
+    overflow-x: auto; /* Must be 'auto' or 'scroll' */
+  white-space: nowrap; /* For horizontal scrolling of inline or inline-block elements */
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+  transform: translateZ(0);
   }
   .thoughts-scroll::-webkit-scrollbar { display: none; }
   
   .thoughts-track {
     display: inline-flex;
-    width: 285px;
+  will-change: transform;
   }
   .thoughts-img-cont {
     flex: none;
